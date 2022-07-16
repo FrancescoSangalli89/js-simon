@@ -4,6 +4,24 @@
     box-sizing: border-box;
 }
 
+.container {
+    text-align: center;
+}
+
+#containerRandomNumbers {
+    margin-top: 3rem;
+}
+
+#screen-number {
+    padding-top: 5rem;
+    font-size: 2rem;
+}
+
+#score {
+    margin-top: 5rem;
+    font-size: 2rem;
+}
+
 .hidden {
     display: none;
 }
