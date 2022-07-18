@@ -18,7 +18,6 @@ let screenNumber = document.getElementById('screen-number');
 
 let insertNumber = [];
 
-
 // creo array random
 for (let i = 0; i < RANDOM_NUMBER; i++) {
     randomNumber = getUniqueNumber(selectedNumber, 1, maxValue);
@@ -34,59 +33,37 @@ setTimeout(function () {
     let containerDom = document.getElementById('containerRandomNumbers');
     containerDom.classList.add('hidden');
 
-}, 30000)
+}, 3000)
 
-// avvio i prompt
 setTimeout(function () {
+    // avvio i prompt
     for (let i = 0; i < selectedNumber.length; i++) {
 
         insertNumber.push(parseInt(prompt('inserisci il numero che hai memorizzato')));
     }
 
-    let commonsNumbers = compare(selectedNumber, insertNumber);
+    
 
-    console.log(commonsNumbers);
+    commonsNumbers = [];
 
     let score = document.getElementById('score');
 
-    score.innerHTML = (`Hai indovinato ${commonsNumbers.length} numeri ${commonsNumbers}`);
-
-    // confronto gli array
-    function compare(array1, array2) {
-        
-        let sortArray1 = array1.sort();
-
-        let sortArray2 = array2.sort();
-
-        let commons = [];
     
-        console.log(array1);
-        console.log(array2);
-        let i = 0;
-        let x = 0;
-    
-        while (i < array1.length && x < array2.length) {
-    
-            if (sortArray1[i] === sortArray2[x]) {
-    
-                commons.push(sortArray1[i]);
-                i++;
-                x++;
-            } else if (sortArray1[i] < sortArray2[x]) {
-                i++;
-            }
-            else {
-                x++;
-            }
 
+    // confronto gli array  
+    for (let i = 0; i < selectedNumber.length; i++) {
+
+        if (insertNumber.includes(selectedNumber[i])) {
+            commonsNumbers.push(selectedNumber[i]);
         }
-
-        return commons;
-    
+        
     }
 
-}, 30500)
+    score.innerHTML = (`Hai indovinato ${commonsNumbers.length} numeri ${commonsNumbers}`);
+    
 
+
+}, 3050)
 
 // creo numeri casuali
 function getRandomNumber(min, max) {
